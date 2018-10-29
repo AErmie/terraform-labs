@@ -1,7 +1,7 @@
 resource "azurerm_resource_group" "webapps" {
-   name = "WebApps"
-   location = "${var.loc}"
-   tags = "${var.tags}"
+    name        = "webapps"
+    location    = "${var.loc}"
+    tags        = "${var.tags}"
 }
 
 resource "random_string" "webapprnd" {
@@ -36,7 +36,6 @@ resource "azurerm_app_service" "citadel" {
     app_service_plan_id = "${element(azurerm_app_service_plan.free.*.id, count.index)}"
 }
 
-output "webapp_ids" {
-  description = "IDs of the Azure WebApps provisoned."
-  value       = "${azurerm_app_service.citadel.*.id}"
+output "webappids" {
+  value = "${azurerm_app_service.citadel.*.id}"
 }
