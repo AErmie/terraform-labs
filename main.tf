@@ -1,5 +1,5 @@
 module "scaffold" {
-  source    = "../terraform-module-scaffold"
+  source    = "github.com/AErmie/terraform-module-scaffold"
 }
 
 resource "azurerm_resource_group" "webapps" {
